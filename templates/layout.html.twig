@@ -1,0 +1,19 @@
+{# templates/demo/layout.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Chantier{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/stylesDemos.css') }}" />
+{% endblock %}
+
+{% block body %}
+    <h1>{% block demoTitle %}{{ nomDemo | default('nomDemo non initialisé') | title }}{% endblock %}</h1>
+    <div id="content">
+	{% block content %}
+        <p>Le résultat de la démo.</p>
+    {% endblock %}
+    </div>
+{% endblock %}
