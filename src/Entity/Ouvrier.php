@@ -19,6 +19,9 @@ class Ouvrier
     #[ORM\Column(length: 255)]
     private ?string $prenom = null;
 
+    #[ORM\ManyToOne(inversedBy: 'ouvriers')]
+    private ?Specialite $specialite = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +47,18 @@ class Ouvrier
     public function setPrenom(string $prenom): static
     {
         $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getSpecialite(): ?Specialite
+    {
+        return $this->specialite;
+    }
+
+    public function setSpecialite(?Specialite $specialite): static
+    {
+        $this->specialite = $specialite;
 
         return $this;
     }

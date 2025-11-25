@@ -12,6 +12,7 @@
         <tr>
             <th>Prénom</th>
             <th>Nom</th>
+            <th>Spécialité</th>
         </tr>
         </thead>
         <tbody>
@@ -19,10 +20,16 @@
             <tr class="{{ cycle(['bad', 'bon'], loop.index0) }}">
                 <td>{{ ouvrier.prenom }}</td>
                 <td>{{ ouvrier.nom }}</td>
+
+                <td>
+                    {% if ouvrier.specialite %}
+                        {{ ouvrier.specialite.libelle }}
+                    {% endif %}
+                </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="2">Aucun ouvrier trouvé.</td>
+                <td colspan="3">Aucun ouvrier trouvé.</td>
             </tr>
         {% endfor %}
         </tbody>
