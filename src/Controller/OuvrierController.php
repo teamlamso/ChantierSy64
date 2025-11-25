@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 #[Route('/ouvrier')]
 final class OuvrierController extends AbstractController
 {
-    #[Route('/', name: 'app_ouvrier_index', methods: ['GET'])]
+    #[Route('/liste', name: 'app_ouvrier_index', methods: ['GET'])]
     public function index(OuvrierRepository $ouvrierRepository): Response
     {
         $lesOuvriers = $ouvrierRepository->findAll();
